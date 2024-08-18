@@ -1,0 +1,24 @@
+.article-card {
+    border: 1px solid black; 
+    width: 30%; 
+    box-sizing: border-box; 
+    margin: 10px; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between; 
+    padding: 10px; 
+}
+
+.image-card img {
+    max-width: 100%;
+    height: auto; 
+}
+
+.info-card {
+    margin-bottom: 10px; 
+}
+
+.title-card {
+    font-size: 1.2em;
+    margin: 0 0 10px 0; 
+}
