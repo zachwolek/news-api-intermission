@@ -11,7 +11,7 @@ import { Routes, Route, Link } from 'react-router-dom'
 import './App.css';
 
 function App() {
-const [articles, setArticles] = useState(mockArticles.articles)
+const [articles, setArticles] = useState([])
 const [singleViewTitle, setSingleViewTitle] = useState('')
 const [author, setAuthor] = useState('')
 
@@ -31,10 +31,10 @@ const resetArticles = () => {
   setArticles(mockArticles.articles)
 }
 
-// useEffect(() => {
-//   getArticles()
-//   .then((result) => setArticles(result.articles))
-// })
+useEffect(() => {
+  getArticles()
+  .then((result) => setArticles(result.articles))
+}, [])
  
   return (
     <div className="App">
