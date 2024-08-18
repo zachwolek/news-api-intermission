@@ -12,7 +12,7 @@ export const Form = ({handlePhrase}) => {
 
     return (
         <>
-        Filter By Author: 
+        Filter By Popular Phrase: 
         <select name="phrase" 
                 value={selectedPhrase} 
                 onChange={handleChange}
@@ -23,6 +23,7 @@ export const Form = ({handlePhrase}) => {
             <option value="Walz">Walz</option>
             <option value="Vance">Vance</option>
             <option value="Musk">Musk</option>
+            <option value="Bitcoin">Bitcoin</option>
             <option value="Crypto">Crypto</option>
         </select>
         </>

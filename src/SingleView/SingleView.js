@@ -23,7 +23,8 @@ export const SingleView = ({articles, singleViewTitle}) => {
                     <h3>{author}</h3>
                     <img src={urlToImage? urlToImage : `https://i.imgur.com/O1IxuvB.jpg`}/>
                     <p>{publishedAt}</p>
-                    <p>{source.name}</p>
+                    <p>By: {source.name}</p>
+                    <p>{content}</p>
                     <div className='external-link'>
                         <a href={url}>
                             Click to see full article!

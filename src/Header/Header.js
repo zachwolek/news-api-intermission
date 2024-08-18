@@ -4,7 +4,7 @@ import './Header.css'
 export const Header = () => {
     return (
         <header className='header-container'>
-            <h1>News NOW!</h1>
+            <h1>News Every Minute NOW!</h1>
         </header>
     )
 }
