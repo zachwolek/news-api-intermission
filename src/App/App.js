@@ -5,15 +5,16 @@ import { SingleView } from '../SingleView/SingleView';
 import { ErrorPage } from '../ErrorPage/ErrorPage';
 import { Form } from '../Form/Form'
 import { getArticles } from '../APICalls';
+import { mockEverythingArticles } from '../MockEverything'
 import { mockArticles } from '../MockArticles';
 import { Routes, Route, Link } from 'react-router-dom'
 
 import './App.css';
 
 function App() {
-const [articles, setArticles] = useState([])
+const [articles, setArticles] = useState(mockEverythingArticles.articles)
 const [singleViewTitle, setSingleViewTitle] = useState('')
-const [author, setAuthor] = useState('')
+const [phrase, setPhrase] = useState('')
 
 const handleArticle = (title) => {
   setSingleViewTitle('')
@@ -21,32 +22,32 @@ const handleArticle = (title) => {
   console.log("CURRENT TITLE: ", title)
 }
 
-const handleAuthor = (author) => {
-  setAuthor(author)
-  const filteredArticles = articles.filter(article => article.author === author)
+const handlePhrase = (phrase) => {
+  setPhrase(phrase)
+  const filteredArticles = articles.filter(article => article.content.includes(phrase))
   setArticles(filteredArticles)
 }
 
 const resetArticles = () => {
-  setArticles(mockArticles.articles)
+  setArticles(mockEverythingArticles.articles)
 }
 
-useEffect(() => {
-  getArticles()
-  .then((result) => setArticles(result.articles))
-}, [])
+// useEffect(() => {
+//   getArticles()
+//   .then((result) => setArticles(result.articles))
+// }, [])
  
   return (
     <div className="App">
-      <Header handleAuthor={handleAuthor}/>
+      <Header handlePhrase={handlePhrase}/>
       <Routes>
         <Route path='/'
           element={
               <Body articles={articles} 
                     handleArticle={handleArticle}
-                    author={author}
-                    handleAuthor={handleAuthor}
-                    setAuthor={setAuthor}
+                    phrase={phrase}
+                    handlePhrase={handlePhrase}
+                    setPhrase={setPhrase}
                     resetArticles={resetArticles}
               />
           }

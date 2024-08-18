@@ -3,7 +3,7 @@ import { Form } from '../Form/Form'
 import { Link } from 'react-router-dom'
 import './Body.css'
 
-export const Body = ({articles, handleArticle, author, handleAuthor, setAuthor, resetArticles}) => {
+export const Body = ({articles, handleArticle, author, handlePhrase, setPhrase, resetArticles, phrase}) => {
 console.log("ARTICLES: ", articles)
 
     const allArticles = articles.map(article => {
@@ -20,13 +20,13 @@ console.log("ARTICLES: ", articles)
 
     return(
         <div className='body'>
-            {author? <div></div> : <Form className='form' handleAuthor={handleAuthor}/>}
-            {author? 
+            {phrase? <div></div> : <Form className='form' handlePhrase={handlePhrase}/>}
+            {phrase? 
               <div className='search-result'>
-                <p>Showing Results for <em>{author}</em></p>
+                <p>Showing Results for <em>{phrase}</em></p>
                 <Link to={`/`} className='button-container' 
                 onClick={() => {
-                    setAuthor('')
+                    setPhrase('')
                     resetArticles()
                     }
                   }>
